@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Nunito:wght@400;600&display=swap');
+
+/* ===== GLOBAL RESET ===== */
+:root {
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Nunito", sans-serif;
+
+  --color-dark: #0B0B0B;
+  --color-gray: #2C2C2C;
+  --color-silver: #C0C0C0;
+  --color-accent: #596065;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body), Arial, sans-serif;
+  background: #0B0B0B;
+  color: var(--color-dark);
+  transition: background-color 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: inherit; /* ensures children inherit Ranade */
+}
+
+h1, h2, h3, h4, h5, h6, .form-title, .form-punchline {
+  font-family: var(--font-heading), Arial, sans-serif;
+}

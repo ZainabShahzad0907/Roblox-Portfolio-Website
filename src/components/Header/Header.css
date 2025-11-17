@@ -1,0 +1,33 @@
+.header {
+  text-align: center;
+  padding: 30px 20px;
+  color: #C0C0C0;
+  border-bottom: 4px solid #C9A227;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.Header-title {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  color: #E5E5E5;
+}
+
+.Header-subtitle {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-style: italic;
+  color: #C0C0C0;
+}
+
+.Header-moto {
+  font-size: 18px;
+  font-weight: 400;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0.9;
+  color: #C0C0C0;
+}
