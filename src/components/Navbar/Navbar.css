@@ -156,15 +156,15 @@
 
 /* Mobile Menu */
 .mobile-menu {
-  display: none;
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.98);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .mobile-nav-list {
@@ -194,7 +194,7 @@
 }
 
 .mobile-cta {
-  margin: 1rem max(2rem, 5vw);
+  margin: 0 max(2rem, 5vw) 1.5rem;
   padding: 1rem 1.5rem;
   background: linear-gradient(135deg, #3b82f6, #8b5cf6);
   color: #ffffff;
@@ -227,10 +227,6 @@
   .mobile-menu-btn {
     display: flex;
   }
-
-  .mobile-menu {
-    display: block;
-  }
 }
 
 @media (max-width: 768px) {
@@ -240,6 +236,14 @@
 
   .navbar.scrolled {
     padding: 0.8rem 1.5rem;
+  }
+
+  .mobile-nav-list {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .mobile-cta {
+    margin: 0 1.5rem 1.5rem;
   }
 }
 
@@ -254,10 +258,15 @@
   }
 
   .mobile-nav-list {
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem;
+  }
+
+  .mobile-nav-link {
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
   }
 
   .mobile-cta {
-    margin: 1rem 1rem;
+    margin: 0 1rem 1rem;
   }
 }

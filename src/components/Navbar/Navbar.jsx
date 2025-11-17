@@ -42,21 +42,30 @@ const Navbar = () => {
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
+    e.stopPropagation();
+    
+    // Close mobile menu first
     setIsMobileMenuOpen(false);
     
-    const targetId = href.substring(1);
-    const element = document.getElementById(targetId);
-    
-    if (element) {
-      const offset = 80; // Navbar height offset
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - offset;
+    // Small delay to allow menu to close
+    setTimeout(() => {
+      const targetId = href.substring(1);
+      const element = document.getElementById(targetId);
+      
+      if (element) {
+        const navbarHeight = 80;
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - navbarHeight;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+
+        // Update active section immediately
+        setActiveSection(targetId);
+      }
+    }, 100);
   };
 
   return (
@@ -123,7 +132,10 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <button
           className={`mobile-menu-btn ${isMobileMenuOpen ? 'open' : ''}`}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsMobileMenuOpen(!isMobileMenuOpen);
+          }}
           aria-label="Toggle menu"
         >
           <span></span>

@@ -7,6 +7,8 @@ import discordLogo from '../../assets/Discord.png';
 import linkedinLogo from '../../assets/Linkedin.png';
 import artstationLogo from '../../assets/Artstation.png';
 import robloxLogo from '../../assets/roblox.png';
+import unityLogo from '../../assets/unity.png';
+import blenderLogo from '../../assets/blender.png';
 
 const Content = () => {
   const scrollToSection = (sectionId) => {
@@ -82,14 +84,14 @@ const Content = () => {
                   <img src={robloxLogo} alt="Roblox" />
                 </div>
                 <div className="icon-item" title="Blender">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.51 13.214c.046-.8.438-1.506 1.03-2.006a3.424 3.424 0 0 1 2.212-.79c.85 0 1.631.3 2.211.79.592.5.983 1.206 1.028 2.005.045.823-.285 1.586-.865 2.153a3.389 3.389 0 0 1-2.374.938 3.393 3.393 0 0 1-2.376-.938c-.58-.567-.91-1.33-.865-2.152M7.35 14.831c.006.314.106.922.256 1.398a7.372 7.372 0 0 0 1.593 2.757 8.227 8.227 0 0 0 2.787 2.001 8.947 8.947 0 0 0 3.66.76 8.964 8.964 0 0 0 3.657-.772 8.285 8.285 0 0 0 2.785-2.01 7.428 7.428 0 0 0 1.592-2.762 6.964 6.964 0 0 0 .25-3.074 7.123 7.123 0 0 0-1.016-2.779 7.764 7.764 0 0 0-2.12-2.04 8.51 8.51 0 0 0-2.768-1.036 9.524 9.524 0 0 0-3.093-.072 8.558 8.558 0 0 0-2.855.834 8.044 8.044 0 0 0-2.328 1.643 7.384 7.384 0 0 0-1.536 2.366 6.839 6.839 0 0 0-.354 2.786"/>
-                  </svg>
+                  <a href="#" className="icon-item" title="Blender">
+                  <img src={blenderLogo} alt="Blender" />
+                 </a>
                 </div>
                 <div className="icon-item" title="Unity">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12.929 1.067l10.104 4.503v12.86l-10.104 4.503L2.825 18.43V5.57L12.93 1.067zm.001 1.595L4.42 6.23v11.54l8.51 3.568 8.51-3.568V6.23l-8.51-3.568zM12.93 6.55l5.658 2.473v4.954l-5.658 2.473-5.658-2.473V9.023l5.658-2.473zm0 1.595l-4.263 1.86v3.99l4.263 1.86 4.263-1.86v-3.99l-4.263-1.86z"/>
-                  </svg>
+                  <a href="#" className="icon-item" title="Unity">
+                  <img src={unityLogo} alt="Unity" />
+                </a>
                 </div>
               </div>
             </div>
