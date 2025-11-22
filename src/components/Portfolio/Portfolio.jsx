@@ -18,6 +18,45 @@ import project4d from '../../assets/project4d.png';
 import project4e from '../../assets/project4e.png';
 import project5a from '../../assets/project5a.png';
 import project5b from '../../assets/project5b.png';
+import project6a from '../../assets/project6a.png';
+import project7a from '../../assets/project7a.png';
+import project8a from '../../assets/project8a.png';
+import project9a from '../../assets/project9a.png';
+import project10a from '../../assets/project10a.png';
+import project11a from '../../assets/project11a.png';
+import project12a from '../../assets/project12a.png';
+import project13a from '../../assets/project13a.png';
+import project14a from '../../assets/project14a.png';
+import project15a from '../../assets/project15a.png';
+import project15b from '../../assets/project15b.png';
+import project16a from '../../assets/project16a.png';
+import project17a from '../../assets/project17a.png';
+import project18a from '../../assets/project18a.png';
+import project19a from '../../assets/project19a.png';
+import project20a from '../../assets/project20a.png';
+import project21a from '../../assets/project21a.png';
+import project22a from '../../assets/project22a.png';
+import project23a from '../../assets/project23a.png';
+import project23b from '../../assets/project23b.png';
+import project23c from '../../assets/project23c.png';
+import project23d from '../../assets/project23d.png';
+import project23e from '../../assets/project23e.png';
+import project25a from '../../assets/project25a.png';
+import project25b from '../../assets/project25b.png';
+import project25c from '../../assets/project25c.png';
+import project25d from '../../assets/project25d.png';
+import project26a from '../../assets/project26a.png';
+import project26b from '../../assets/project26b.png';
+import project26c from '../../assets/project26c.png';
+import project26d from '../../assets/project26d.png';
+import project26e from '../../assets/project26e.png';
+import project26f from '../../assets/project26f.png';
+import project26g from '../../assets/project26g.png';
+import project26h from '../../assets/project26h.png';
+import project26i from '../../assets/project26i.png';
+import project27a from '../../assets/project27a.png';
+import project27b from '../../assets/project27b.png';
+import project28a from '../../assets/project28a.png';
 
 const Portfolio = () => {
   const [showAll, setShowAll] = useState(false);
@@ -26,52 +65,100 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: 'Futuristic City Environment',
-      category: 'Urban Design',
+      title: 'The Laundress Experience',
+      category: 'High Poly',
       images: [project1a, project1b, project1c],
-      description: 'A detailed futuristic cityscape with neon lighting and advanced architecture',
-      tags: ['Roblox Studio', 'Blender', 'Lighting']
+      description: 'A simple 3D look at a boutique shop front and inside space, showing clean design and cozy vibes.',
+      tags: ['Roblox Studio', 'Blender', 'Store Design']
     },
     {
       id: 2,
-      title: 'Medieval Fantasy Castle',
-      category: 'Fantasy',
+      title: 'Rizz The Pizz',
+      category: 'High Poly',
       images: [project2a, project2b, project2c],
-      description: 'Immersive medieval castle with intricate details and atmospheric lighting',
-      tags: ['Environment', 'Architecture', 'Detail']
+      description: 'A bold and playful 3D concept for a modern pizzeria, featuring sleek interiors, glowing lights, & a sunset.',
+      tags: ['Restaurant Render', '3D Interior', 'Blender']
     },
     {
       id: 3,
-      title: 'Tropical Island Resort',
-      category: 'Nature',
+      title: 'Westview Ice Cream Parlour',
+      category: 'Mid Poly',
       images: [project3a, project3b],
-      description: 'Beautiful tropical paradise with crystal clear waters and lush vegetation',
-      tags: ['Nature', 'Water', 'Landscape']
+      description: 'A sweet little ice cream shop with soft lighting and playful design touches.',
+      tags: ['Dessert Spot', 'Ice Cream Vibes', '3D Design']
     },
-    {
+      {
       id: 4,
-      title: 'Sci-Fi Space Station',
-      category: 'Sci-Fi',
-      images: [project4a, project4b, project4c, project4d, project4e],
-      description: 'Advanced space station interior with futuristic technology and design',
-      tags: ['Sci-Fi', 'Interior', 'Tech']
+      title: 'Soviet Apartment Blocks',
+      category: 'Mid Poly',
+      images: [project5a, project5b, project6a, project7a],
+      description: 'A gritty 3D take on post-war Soviet housing - boxy, elevated, and built for function over flair.',
+      tags: ['Brutalist Design', 'Eastern Bloc Style', 'Urban Architecture']
     },
     {
       id: 5,
-      title: 'Haunted Mansion',
-      category: 'Horror',
-      images: [project5a, project5b],
-      description: 'Spooky haunted mansion with eerie atmosphere and gothic architecture',
-      tags: ['Horror', 'Atmosphere', 'Gothic']
+      title: 'Institutional & Landmark Pack',
+      category: 'Mixed Poly',
+      images: [project19a, project14a, project17a, project13a, project18a,  project16a, project22a],
+      description: 'A collection of high-impact 3D buildings - from hospitals and hotels to training centers and temples - designed to anchor city scenes and add realism to public environments.',
+      tags: ['Landmark Assets', 'Civic Architecture']
     },
     {
       id: 6,
-      title: 'Modern Office Complex',
-      category: 'Modern',
-      images: [project1a, project2a],
-      description: 'Contemporary office space with clean lines and professional design',
-      tags: ['Modern', 'Interior', 'Clean']
-    }
+      title: 'Urban Simulation Pack',
+      category: 'Mixed Poly',
+      images: [project12a, project9a, project11a, project10a, project8a, project21a, project20a],
+      description: 'A full-scale 3D city environment featuring shops, offices, eateries, public buildings, and residential blocks - designed for simulation, storytelling, or game-ready use.',
+      tags: ['City Assets', 'Architectural Pack']
+    },
+    {
+      id: 7,
+      title: 'Bloomfield Police Academy',
+      category: 'Mid/Low Poly',
+      images: [project4a, project4b, project4c, project4d, project4e],
+      description: 'A sharp and detailed 3D render of a city-based police academy, built for realism and scale.',
+      tags: ['Institutional Architecture', 'Exterior + Interior']
+    },
+    {
+      id: 8,
+      title: 'Modern Civic Structure',
+      category: 'Mid Poly',
+      images: [project15a, project15b],
+      description: 'Sleek public building with tiled facades, warm lighting, and symmetrical layouts - designed for realism and versatility.',
+      tags: ['Civic Assets', 'Public Architecture']
+    },
+    {
+      id: 9,
+      title: 'Crossroads Adventure Map',
+      category: 'Low Poly',
+      images: [project23a, project23b, project23c, project23d, project23e],
+      description: 'A vibrant sandbox-style map with fantasy zones, slides, towers, and themed districts — built for exploration and fun.',
+      tags: ['Low Poly World', 'Interactive Playground']
+    },
+    {
+      id: 10,
+      title: 'Physical Sciences South',
+      category: 'Mid Poly',
+      images: [project25a, project25b, project25c, project25d],
+      description: 'A modern science facility with clean lines, arched details, and a structured layout - designed for campus realism.',
+      tags: ['Campus Asset', 'Mid Poly Render','Educational Space']
+    },
+    {
+      id: 12,
+      title: 'GTA-Inspired Cityscape',
+      category: 'Mixed Poly',
+      images: [project26c, project26b, project26a, project26d, project26e, project26f, project26g, project26h, project26i, project28a ],
+      description: 'A stylized urban map with glowing windows, graffiti walls, fast-food joints, and palm-lined streets - built for sandbox chaos and story-driven gameplay.',
+      tags: ['Open World Assets', 'Urban Grit', 'Mixed Poly City']
+    },
+    {
+      id: 13,
+      title: 'Low-Poly World Pack',
+      category: 'Low Poly',
+      images: [project27a, project27b],
+      description: 'A bright and playful set of low-poly scenes - from grassy terrain and blocky trees to circular city parks with roaming creatures. Built for lightweight performance and creative worldbuilding.',
+      tags: ['Stylized Terrain', 'Low Poly Assets']
+    },
   ];
 
   const displayedProjects = showAll ? projects : projects.slice(0, 3);

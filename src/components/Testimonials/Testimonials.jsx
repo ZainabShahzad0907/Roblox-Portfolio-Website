@@ -10,83 +10,97 @@ import proof4 from '../../assets/Proof4.jpg';
 import proof5 from '../../assets/Proof5.jpg';
 import proof6 from '../../assets/Proof6.jpg';
 import proof7 from '../../assets/Proof7.jpg';
+import proof8 from '../../assets/Proof8.jpg';
+import proof9 from '../../assets/Proof9.jpg';
 
 const Testimonials = () => {
   const [selectedProof, setSelectedProof] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const testimonials = [
-    {
-      id: 1,
-      name: 'Alex Johnson',
-      role: 'Game Developer',
-      company: 'PixelForge Studios',
-      rating: 5,
-      review: 'Absolutely phenomenal work! The environment design exceeded all expectations. Professional, creative, and delivered on time.',
-      proof: proof1,
-      avatar: '👨‍💼'
-    },
-    {
-      id: 2,
-      name: 'Sarah Mitchell',
-      role: 'Creative Director',
-      company: 'GameVerse Inc',
-      rating: 5,
-      review: 'Working with Zain was a game-changer for our project. The attention to detail and technical expertise is unmatched.',
-      proof: proof2,
-      avatar: '👩‍💼'
-    },
-    {
-      id: 3,
-      name: 'Marcus Chen',
-      role: 'Studio Manager',
-      company: 'Digital Dreams',
-      rating: 5,
-      review: 'Best Roblox environment artist I have ever worked with. Fast turnaround, exceptional quality, and great communication.',
-      proof: proof3,
-      avatar: '👨‍💻'
-    },
-    {
-      id: 4,
-      name: 'Emma Rodriguez',
-      role: 'Project Lead',
-      company: 'Virtual Worlds Co',
-      rating: 5,
-      review: 'The level of professionalism and creativity is outstanding. Our game world looks absolutely stunning thanks to this collaboration.',
-      proof: proof4,
-      avatar: '👩‍🎨'
-    },
-    {
-      id: 5,
-      name: 'David Kim',
-      role: 'Game Designer',
-      company: 'Infinity Games',
-      rating: 5,
-      review: 'Incredible attention to detail and optimization. The maps run smoothly and look amazing. Highly recommended!',
-      proof: proof5,
-      avatar: '👨‍🎨'
-    },
-    {
-      id: 6,
-      name: 'Lisa Thompson',
-      role: 'Art Director',
-      company: 'Creative Nexus',
-      rating: 5,
-      review: 'Transformed our vision into reality with precision and artistry. Absolutely worth every penny!',
-      proof: proof6,
-      avatar: '👩‍💼'
-    },
-    {
-      id: 7,
-      name: 'James Wilson',
-      role: 'Studio Owner',
-      company: 'Apex Gaming',
-      rating: 5,
-      review: 'Professional, talented, and reliable. The quality of work speaks for itself. Will definitely work together again!',
-      proof: proof7,
-      avatar: '👨‍💼'
-    }
-  ];
+const testimonials = [
+  {
+    id: 1,
+    name: 'sova',
+    role: 'Game Developer',
+    company: 'HiddenDevs',
+    rating: 5,
+    review: "Wow, the environment you made totally blew me away! Everything looks amazing and you delivered way faster than I expected.",
+    proof: proof1,
+    avatar: '👨🏽‍💻' // male, medium skin tone
+  },
+  {
+    id: 2,
+    name: 'Andropodizer',
+    role: 'Creative Director',
+    company: 'Republic Of Pakistan',
+    rating: 5,
+    review: "Working with Umar was awesome. Super detail-oriented and just knows how to bring ideas to life. Everything arrived on time too.",
+    proof: proof2,
+    avatar: '👩🏾‍🎨' // female, dark skin tone
+  },
+  {
+    id: 3,
+    name: 'royal glands',
+    role: 'Game Developer',
+    company: 'Roblox Studio Community',
+    rating: 5,
+    review: "Hands down the best Roblox environment artist I've worked with. Fast, reliable, and the builds look incredible.",
+    proof: proof3,
+    avatar: '🧑🏻‍💻' // gender-neutral, light skin tone
+  },
+  {
+    id: 4,
+    name: 'RanByNoah',
+    role: 'Investor',
+    company: 'Roblox Studio Community',
+    rating: 5,
+    review: "Seriously impressed! The game world turned out way better than I imagined. Super creative and professional.",
+    proof: proof4,
+    avatar: '👩🏿‍💼' // female, dark skin tone
+  },
+  {
+    id: 5,
+    name: 'russ',
+    role: 'Project Lead',
+    company: 'RoDevs',
+    rating: 5,
+    review: "Maps look amazing and run so smooth. Couldn’t ask for better attention to detail. Totally recommend!",
+    proof: proof5,
+    avatar: '👨🏻‍🎨' // male, light skin tone
+  },
+  {
+    id: 6,
+    name: 'Spendely',
+    role: 'Game Designer',
+    company: 'Slingshot Studios',
+    rating: 5,
+    review: "You really brought our vision to life. The designs are spot-on and just what we needed. Worth every penny!",
+    proof: proof6,
+    avatar: '🧑🏽‍🎨' // gender-neutral, medium skin tone
+  },
+  {
+    id: 7,
+    name: 'extrodite',
+    role: 'Studio Owner',
+    company: 'HiddenDevs',
+    rating: 5,
+    review: "Super talented and easy to work with. The quality speaks for itself. Would definitely collab again!",
+    proof: proof7,
+    avatar: '👨🏾‍💻' // male, dark skin tone
+  },
+  {
+    id: 8,
+    name: 'RySky_Skeleton05',
+    role: 'Game Developer',
+    company: 'Roblox Studio Community',
+    rating: 5,
+    review: "Really happy with the builds! Everything looks great and works perfectly. Highly recommend for anyone needing awesome environments.",
+    proof: proof8,
+    avatar: '👩🏻‍💻' // female, light skin tone
+  }
+];
+
+
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);

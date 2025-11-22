@@ -83,16 +83,12 @@ const Content = () => {
                 <div className="icon-item" title="Roblox Studio">
                   <img src={robloxLogo} alt="Roblox" />
                 </div>
-                <div className="icon-item" title="Blender">
-                  <a href="#" className="icon-item" title="Blender">
+                <a href="https://www.blender.org/" target="_blank" rel="noopener noreferrer" className="icon-item" title="Blender">
                   <img src={blenderLogo} alt="Blender" />
-                 </a>
-                </div>
-                <div className="icon-item" title="Unity">
-                  <a href="#" className="icon-item" title="Unity">
+                </a>
+                <a href="https://unity.com/" target="_blank" rel="noopener noreferrer" className="icon-item" title="Unity">
                   <img src={unityLogo} alt="Unity" />
                 </a>
-                </div>
               </div>
             </div>
 
@@ -101,13 +97,33 @@ const Content = () => {
             <div className="meta-group">
               <span className="meta-label">Connect</span>
               <div className="icon-list">
-                <a href="#" className="icon-item" title="Discord">
+                <a 
+                  href="https://discordapp.com/users/1135170546917716020" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="icon-item" 
+                  title="Discord"
+                >
                   <img src={discordLogo} alt="Discord" />
                 </a>
-                <a href="#" className="icon-item" title="LinkedIn">
+
+                <a 
+                  href="https://www.linkedin.com/in/umar-shahzad-920898248/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="icon-item" 
+                  title="LinkedIn"
+                >
                   <img src={linkedinLogo} alt="LinkedIn" />
                 </a>
-                <a href="#" className="icon-item" title="ArtStation">
+
+                <a 
+                  href="https://www.artstation.com/artwork/4N9B1l" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="icon-item" 
+                  title="ArtStation"
+                >
                   <img src={artstationLogo} alt="ArtStation" />
                 </a>
               </div>
