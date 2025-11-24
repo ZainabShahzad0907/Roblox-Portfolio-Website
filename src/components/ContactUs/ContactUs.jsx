@@ -44,8 +44,8 @@ const ContactUs = () => {
         </svg>
       ),
       title: "Discord",
-      value: "@YourUsername",
-      link: "https://discord.com/users/yourid",
+      value: "umshzd324",
+      link: "https://discordapp.com/users/1135170546917716020",
       description: "Message me on Discord",
     },
     {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Testimonials.css';
 
@@ -16,99 +16,132 @@ import proof9 from '../../assets/Proof9.jpg';
 const Testimonials = () => {
   const [selectedProof, setSelectedProof] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const showcaseRef = useRef(null);
 
-const testimonials = [
-  {
-    id: 1,
-    name: 'sova',
-    role: 'Game Developer',
-    company: 'HiddenDevs',
-    rating: 5,
-    review: "Wow, the environment you made totally blew me away! Everything looks amazing and you delivered way faster than I expected.",
-    proof: proof1,
-    avatar: '👨🏽‍💻' // male, medium skin tone
-  },
-  {
-    id: 2,
-    name: 'Andropodizer',
-    role: 'Creative Director',
-    company: 'Republic Of Pakistan',
-    rating: 5,
-    review: "Working with Umar was awesome. Super detail-oriented and just knows how to bring ideas to life. Everything arrived on time too.",
-    proof: proof2,
-    avatar: '👩🏾‍🎨' // female, dark skin tone
-  },
-  {
-    id: 3,
-    name: 'royal glands',
-    role: 'Game Developer',
-    company: 'Roblox Studio Community',
-    rating: 5,
-    review: "Hands down the best Roblox environment artist I've worked with. Fast, reliable, and the builds look incredible.",
-    proof: proof3,
-    avatar: '🧑🏻‍💻' // gender-neutral, light skin tone
-  },
-  {
-    id: 4,
-    name: 'RanByNoah',
-    role: 'Investor',
-    company: 'Roblox Studio Community',
-    rating: 5,
-    review: "Seriously impressed! The game world turned out way better than I imagined. Super creative and professional.",
-    proof: proof4,
-    avatar: '👩🏿‍💼' // female, dark skin tone
-  },
-  {
-    id: 5,
-    name: 'russ',
-    role: 'Project Lead',
-    company: 'RoDevs',
-    rating: 5,
-    review: "Maps look amazing and run so smooth. Couldn’t ask for better attention to detail. Totally recommend!",
-    proof: proof5,
-    avatar: '👨🏻‍🎨' // male, light skin tone
-  },
-  {
-    id: 6,
-    name: 'Spendely',
-    role: 'Game Designer',
-    company: 'Slingshot Studios',
-    rating: 5,
-    review: "You really brought our vision to life. The designs are spot-on and just what we needed. Worth every penny!",
-    proof: proof6,
-    avatar: '🧑🏽‍🎨' // gender-neutral, medium skin tone
-  },
-  {
-    id: 7,
-    name: 'extrodite',
-    role: 'Studio Owner',
-    company: 'HiddenDevs',
-    rating: 5,
-    review: "Super talented and easy to work with. The quality speaks for itself. Would definitely collab again!",
-    proof: proof7,
-    avatar: '👨🏾‍💻' // male, dark skin tone
-  },
-  {
-    id: 8,
-    name: 'RySky_Skeleton05',
-    role: 'Game Developer',
-    company: 'Roblox Studio Community',
-    rating: 5,
-    review: "Really happy with the builds! Everything looks great and works perfectly. Highly recommend for anyone needing awesome environments.",
-    proof: proof8,
-    avatar: '👩🏻‍💻' // female, light skin tone
-  }
-];
+  const testimonials = [
+    {
+      id: 1,
+      name: 'sova',
+      role: 'Game Developer',
+      company: 'HiddenDevs',
+      rating: 5,
+      review: "Wow, the environment you made totally blew me away! Everything looks amazing and you delivered way faster than I expected.",
+      proof: proof1,
+      avatar: '👨🏽‍💻' // male, medium skin tone
+    },
+    {
+      id: 2,
+      name: 'Andropodizer',
+      role: 'Creative Director',
+      company: 'Republic Of Pakistan',
+      rating: 5,
+      review: "Working with Umar was awesome. Super detail-oriented and just knows how to bring ideas to life. Everything arrived on time too.",
+      proof: proof2,
+      avatar: '👩🏾‍🎨' // female, dark skin tone
+    },
+    {
+      id: 3,
+      name: 'royal glands',
+      role: 'Game Developer',
+      company: 'Roblox Studio Community',
+      rating: 5,
+      review: "Hands down the best Roblox environment artist I've worked with. Fast, reliable, and the builds look incredible.",
+      proof: proof3,
+      avatar: '🧑🏻‍💻' // gender-neutral, light skin tone
+    },
+    {
+      id: 4,
+      name: 'RanByNoah',
+      role: 'Investor',
+      company: 'Roblox Studio Community',
+      rating: 5,
+      review: "Seriously impressed! The game world turned out way better than I imagined. Super creative and professional.",
+      proof: proof4,
+      avatar: '👩🏿‍💼' // female, dark skin tone
+    },
+    {
+      id: 5,
+      name: 'russ',
+      role: 'Project Lead',
+      company: 'RoDevs',
+      rating: 5,
+      review: "Maps look amazing and run so smooth. Couldn’t ask for better attention to detail. Totally recommend!",
+      proof: proof5,
+      avatar: '👨🏻‍🎨' // male, light skin tone
+    },
+    {
+      id: 6,
+      name: 'Spendely',
+      role: 'Game Designer',
+      company: 'Slingshot Studios',
+      rating: 5,
+      review: "You really brought our vision to life. The designs are spot-on and just what we needed. Worth every penny!",
+      proof: proof6,
+      avatar: '🧑🏽‍🎨' // gender-neutral, medium skin tone
+    },
+    {
+      id: 7,
+      name: 'extrodite',
+      role: 'Studio Owner',
+      company: 'HiddenDevs',
+      rating: 5,
+      review: "Super talented and easy to work with. The quality speaks for itself. Would definitely collab again!",
+      proof: proof7,
+      avatar: '👨🏾‍💻' // male, dark skin tone
+    },
+    {
+      id: 8,
+      name: 'RySky_Skeleton05',
+      role: 'Game Developer',
+      company: 'Roblox Studio Community',
+      rating: 5,
+      review: "Really happy with the builds! Everything looks great and works perfectly. Highly recommend for anyone needing awesome environments.",
+      proof: proof8,
+      avatar: '👩🏻‍💻' // female, light skin tone
+    }
+  ];
 
+  const scrollToIndex = (index) => {
+    const showcase = showcaseRef.current;
+    if (!showcase) return;
+    
+    const cardWidth = showcase.children[0]?.offsetWidth || showcase.offsetWidth;
+    const gap = 32; // 2rem gap between cards
+    showcase.scrollTo({
+      left: (cardWidth + gap) * index,
+      behavior: 'smooth'
+    });
+    setCurrentIndex(index);
+  };
 
-
+  // Update the next/prev functions to use scrollToIndex
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    const newIndex = (currentIndex + 1) % testimonials.length;
+    scrollToIndex(newIndex);
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    const newIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+    scrollToIndex(newIndex);
   };
+
+  // Handle scroll snap on mobile
+  useEffect(() => {
+    const showcase = showcaseRef.current;
+    if (!showcase) return;
+
+    const handleScroll = () => {
+      const scrollPosition = showcase.scrollLeft;
+      const cardWidth = showcase.offsetWidth;
+      const newIndex = Math.round(scrollPosition / cardWidth);
+      if (newIndex !== currentIndex && newIndex >= 0 && newIndex < testimonials.length) {
+        setCurrentIndex(newIndex);
+      }
+    };
+
+    showcase.addEventListener('scroll', handleScroll);
+    return () => showcase.removeEventListener('scroll', handleScroll);
+  }, [currentIndex, testimonials.length]);
 
   const currentTestimonial = testimonials[currentIndex];
 
@@ -143,8 +176,8 @@ const testimonials = [
         </motion.div>
 
         {/* Main Testimonial Display */}
-        <div className="testimonial-showcase">
-          {/* Navigation Arrows */}
+        <div className="testimonial-showcase-container">
+          {/* Navigation Arrows - Desktop Only */}
           <button 
             className="nav-arrow nav-left"
             onClick={prevTestimonial}
@@ -165,81 +198,82 @@ const testimonials = [
             </svg>
           </button>
 
-          {/* Testimonial Card */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              className="testimonial-card"
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="testimonial-content">
-                {/* Quote Icon */}
-                <div className="quote-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
-                  </svg>
-                </div>
-
-                {/* Rating */}
-                <div className="rating">
-                  {[...Array(currentTestimonial.rating)].map((_, i) => (
-                    <svg key={i} viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          {/* Scrollable Testimonials */}
+          <div className="testimonial-showcase" ref={showcaseRef}>
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={testimonial.id}
+                className="testimonial-card"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="testimonial-content">
+                  {/* Quote Icon */}
+                  <div className="quote-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
                     </svg>
-                  ))}
-                </div>
-
-                {/* Review Text */}
-                <p className="review-text">"{currentTestimonial.review}"</p>
-
-                {/* Client Info */}
-                <div className="client-info">
-                  <div className="client-avatar">
-                    <span>{currentTestimonial.avatar}</span>
                   </div>
-                  <div className="client-details">
-                    <h4 className="client-name">{currentTestimonial.name}</h4>
-                    <p className="client-role">{currentTestimonial.role}</p>
-                    <p className="client-company">{currentTestimonial.company}</p>
+
+                  {/* Rating */}
+                  <div className="rating">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <svg key={i} viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                    ))}
+                  </div>
+
+                  {/* Review Text */}
+                  <p className="review-text">"{testimonial.review}"</p>
+
+                  {/* Client Info */}
+                  <div className="client-info">
+                    <div className="client-avatar">
+                      <span>{testimonial.avatar}</span>
+                    </div>
+                    <div className="client-details">
+                      <h4 className="client-name">{testimonial.name}</h4>
+                      <p className="client-role">{testimonial.role}</p>
+                      <p className="client-company">{testimonial.company}</p>
+                    </div>
+                  </div>
+
+                  {/* Proof Button */}
+                  <button 
+                    className="proof-btn"
+                    onClick={() => setSelectedProof(testimonial.proof)}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                      <polyline points="14 2 14 8 20 8"/>
+                      <line x1="16" y1="13" x2="8" y2="13"/>
+                      <line x1="16" y1="17" x2="8" y2="17"/>
+                      <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    <span>View Proof</span>
+                  </button>
+                </div>
+
+                {/* Testimonial Preview Image */}
+                <div className="testimonial-preview">
+                  <div className="preview-glow"></div>
+                  <img 
+                    src={testimonial.proof} 
+                    alt={`Proof from ${testimonial.name}`}
+                    onClick={() => setSelectedProof(testimonial.proof)}
+                  />
+                  <div className="verified-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>Verified</span>
                   </div>
                 </div>
-
-                {/* Proof Button */}
-                <button 
-                  className="proof-btn"
-                  onClick={() => setSelectedProof(currentTestimonial.proof)}
-                >
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                    <line x1="16" y1="13" x2="8" y2="13"/>
-                    <line x1="16" y1="17" x2="8" y2="17"/>
-                    <polyline points="10 9 9 9 8 9"/>
-                  </svg>
-                  <span>View Proof</span>
-                </button>
-              </div>
-
-              {/* Testimonial Preview Image */}
-              <div className="testimonial-preview">
-                <div className="preview-glow"></div>
-                <img 
-                  src={currentTestimonial.proof} 
-                  alt={`Proof from ${currentTestimonial.name}`}
-                  onClick={() => setSelectedProof(currentTestimonial.proof)}
-                />
-                <div className="verified-badge">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                  <span>Verified</span>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
 
           {/* Pagination Dots */}
           <div className="pagination-dots">
@@ -247,7 +281,7 @@ const testimonials = [
               <button
                 key={index}
                 className={`dot ${index === currentIndex ? 'active' : ''}`}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => scrollToIndex(index)}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}

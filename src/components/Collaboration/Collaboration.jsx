@@ -12,6 +12,21 @@ import westviewLogo from "../../assets/westview.png";
 
 const Collaboration = () => {
   const [hoveredBrand, setHoveredBrand] = useState(null);
+  
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80; // Navbar height offset
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const brands = [
    
     {
@@ -359,7 +374,12 @@ const Collaboration = () => {
             <p className="cta-text">
               Let's collaborate to create something extraordinary together
             </p>
-            <button className="cta-button">
+            <motion.button 
+              className="cta-button"
+              onClick={() => scrollToSection('hire')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <span>Get Started Today</span>
               <svg
                 width="20"
@@ -371,7 +391,7 @@ const Collaboration = () => {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </button>
+            </motion.button>
           </div>
         </motion.div>
       </div>

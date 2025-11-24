@@ -483,30 +483,26 @@
 
 .cta-text {
   font-size: 1.1rem;
-  color: #d1d5db;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
+  color: #9ca3af;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
 }
 
 .cta-button {
-  padding: 1.2rem 3rem;
+  padding: 1rem 2rem;
   background: linear-gradient(135deg, #3b82f6, #8b5cf6);
   color: #ffffff;
   border: none;
   border-radius: 12px;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
   transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-}
-
-.cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 50px rgba(59, 130, 246, 0.6);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  margin-top: 1rem;
 }
 
 /* Section Wrapper */

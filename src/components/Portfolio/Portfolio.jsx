@@ -61,6 +61,7 @@ import project28a from '../../assets/project28a.png';
 const Portfolio = () => {
   const [showAll, setShowAll] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [fullscreenImage, setFullscreenImage] = useState(null);
 
   const projects = [
     {
@@ -314,7 +315,21 @@ const Portfolio = () => {
 
               <div className="modal-images">
                 {selectedProject.images.map((img, i) => (
-                  <img key={i} src={img} alt={`${selectedProject.title} ${i + 1}`} />
+                  <div 
+                    key={i} 
+                    className="modal-image-wrapper"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setFullscreenImage(img);
+                    }}
+                  >
+                    <img src={img} alt={`${selectedProject.title} ${i + 1}`} />
+                    <div className="fullscreen-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                      </svg>
+                    </div>
+                  </div>
                 ))}
               </div>
 
@@ -327,6 +342,38 @@ const Portfolio = () => {
                 </div>
               </div>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Fullscreen Image Viewer */}
+      <AnimatePresence>
+        {fullscreenImage && (
+          <motion.div 
+            className="fullscreen-viewer"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setFullscreenImage(null)}
+          >
+            <button 
+              className="fullscreen-close"
+              onClick={() => setFullscreenImage(null)}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+            <motion.img 
+              src={fullscreenImage} 
+              alt="Fullscreen view"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              className="fullscreen-image"
+              onClick={(e) => e.stopPropagation()}
+            />
           </motion.div>
         )}
       </AnimatePresence>
