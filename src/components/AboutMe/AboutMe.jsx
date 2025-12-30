@@ -186,7 +186,7 @@ function About() {
             <span className="heading-accent"> Creating Better Worlds</span>
           </h2>
           <p className="about-lead">
-            Professional 3D environment artist with a passion for creating game experiences 
+            Professional 3D environment artists with a passion for creating game experiences 
             that captivate and inspire millions of players
           </p>
         </motion.div>

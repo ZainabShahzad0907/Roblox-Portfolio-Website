@@ -190,7 +190,7 @@ const Portfolio = () => {
             Featured <span className="heading-gradient">Projects</span>
           </h2>
           <p className="portfolio-lead">
-            Explore my latest work showcasing immersive environments and creative excellence
+            Explore our latest work showcasing immersive environments and creative excellence
           </p>
         </motion.div>
 
