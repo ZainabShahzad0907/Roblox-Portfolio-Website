@@ -13,7 +13,7 @@ const Navbar = () => {
     { name: 'Projects', href: '#projects' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'Collaborations', href: '#collaborations' },
-    { name: 'Hire Me', href: '#hire' },
+    { name: 'Hire Us', href: '#hire' },
     { name: 'Contact Us', href: '#contact' }
   ];
 
@@ -84,8 +84,8 @@ const Navbar = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="logo-text">Umar's</span>
-          <span className="logo-highlight">Portfolio</span>
+          <span className="logo-text">UZ</span>
+          <span className="logo-highlight">Blockworks</span>
         </motion.a>
 
         {/* Desktop Menu */}

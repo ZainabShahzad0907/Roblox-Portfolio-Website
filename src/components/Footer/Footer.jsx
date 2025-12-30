@@ -70,7 +70,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="brand-name">Umar <span className="brand-highlight"> Shahzad</span></h3>
+            <h3 className="brand-name">UZ <span className="brand-highlight"> Blockworks</span></h3>
             <p className="brand-tagline">3D Environment Artist & Map Builder</p>
             <div className="brand-socials">
               {socialLinks.map((social, index) => (
@@ -125,6 +125,13 @@ const Footer = () => {
                 </svg>
                 <span>umshzd324@gmail.com</span>
               </a>
+              <a href="mailto:zainabshahzad0907@gmail.com" className="contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+                <span>zainabshahzad0907@gmail.com</span>
+              </a>
               <a href="#hire" className="contact-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
@@ -146,7 +153,7 @@ const Footer = () => {
           <div className="bottom-divider"></div>
           <div className="bottom-content">
             <p className="copyright">
-              © {currentYear} <span className="copyright-name">umshzd324</span>. All rights reserved.
+              © {currentYear} <span className="copyright-name">UZ Blockworks</span>. All rights reserved.
             </p>
             <p className="crafted">
               Crafted with <span className="heart">♥</span> and creativity

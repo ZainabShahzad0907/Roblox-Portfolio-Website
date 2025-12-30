@@ -11,7 +11,7 @@
 /* Collaboration Section */
 .collaboration {
   min-height: 100vh;
-  padding: 120px max(2rem, 5vw) 100px;
+  padding: 1px max(2rem, 5vw) 100px;
   position: relative;
   background: #000000;
   overflow: hidden;

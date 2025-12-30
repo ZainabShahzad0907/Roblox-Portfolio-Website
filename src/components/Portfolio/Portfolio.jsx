@@ -162,7 +162,7 @@ const Portfolio = () => {
     },
   ];
 
-  const displayedProjects = showAll ? projects : projects.slice(0, 3);
+  const displayedProjects = showAll ? projects : projects.slice(0, 4);
 
   return (
     <section className="portfolio" id="projects">
@@ -251,7 +251,7 @@ const Portfolio = () => {
         </div>
 
         {/* Show More/Less Button */}
-        {projects.length > 3 && (
+        {projects.length > 4 && (
           <motion.div 
             className="portfolio-actions"
             initial={{ opacity: 0 }}

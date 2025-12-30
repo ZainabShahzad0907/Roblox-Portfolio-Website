@@ -341,7 +341,7 @@ const Collaboration = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <h3 className="benefits-title">Why Choose Me</h3>
+          <h3 className="benefits-title">Why Choose Us</h3>
           <div className="benefits-grid">
             {benefits.map((benefit, index) => (
               <motion.div

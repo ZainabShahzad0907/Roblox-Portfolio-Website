@@ -15,7 +15,7 @@
 /* About Section - Clean & Modern */
 .about-section {
   min-height: 100vh;
-  padding: 120px max(2rem, 5vw) 100px;
+  padding: 30px max(2rem, 5vw) 100px;
   position: relative;
   background: #000000;
   overflow: hidden;
@@ -387,6 +387,54 @@
   transition: all 0.3s ease;
   box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
   margin-top: 1rem;
+}
+
+/* Partners Section */
+.partner-list {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+/* Partner Card */
+.partner-list li {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+/* Hover Effect */
+.partner-list li:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.6);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+}
+
+/* Partner Name */
+.partner-list li strong:first-child {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Discord Text */
+.partner-list li span {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: #c7d2fe;
+}
+
+/* Discord Username Highlight */
+.partner-list li span strong {
+  color: #818cf8;
+  font-weight: 600;
 }
 
 /* Responsive */

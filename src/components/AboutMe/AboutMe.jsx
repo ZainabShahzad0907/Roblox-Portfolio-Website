@@ -115,16 +115,25 @@ function About() {
   const services = [
     {
       title: 'Environment Design',
-      description: 'Creating immersive 3D worlds with stunning visuals and optimized performance',
+      description: 'Collaborative creation of immersive 3D worlds with stunning visuals and optimized performance',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
         </svg>
       )
     },
+     {
+      title: 'Custom Solutions',
+      description: 'Team-driven solutions combining creativity & technical depth to bring your unique vision to life',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+        </svg>
+      )
+    },
     {
       title: 'Map Building',
-      description: 'Expert Roblox map creation from concept to polished final product',
+      description: 'End-to-end Roblox map development handled jointly from concept to final delivery',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M12 2L2 7l10 5 10-5-10-5z"/>
@@ -141,15 +150,7 @@ function About() {
         </svg>
       )
     },
-    {
-      title: 'Custom Solutions',
-      description: 'Tailored approaches to bring your unique vision to life',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
-        </svg>
-      )
-    }
+   
   ];
 
   return (
@@ -178,11 +179,11 @@ function About() {
         >
           <div className="section-tag">
             <div className="tag-dot"></div>
-            <span>About Me</span>
+            <span>About Us</span>
           </div>
           <h2 className="about-heading">
-            Turning Ideas Into
-            <span className="heading-accent"> Immersive Worlds</span>
+            Building Together
+            <span className="heading-accent"> Creating Better Worlds</span>
           </h2>
           <p className="about-lead">
             Professional 3D environment artist with a passion for creating game experiences 
@@ -201,16 +202,30 @@ function About() {
             transition={{ duration: 0.8 }}
           >
             <div className="intro-box">
-              <h3 className="intro-title">Who I Am</h3>
+              <h3 className="intro-title">Who We Are</h3>
               <p className="intro-text">
-                I'm a dedicated 3D environment artist specializing in Roblox map design and 
-                immersive game world creation. With years of experience and 50+ completed 
-                projects, I transform creative visions into stunning digital realities.
+                We are a dedicated Roblox developers combining environment design 
+                and technical expertise to deliver polished, engaging game worlds. Together, 
+                we have completed 50+ projects for creators and studios worldwide.
               </p>
               <p className="intro-text">
-                My approach combines technical mastery with artistic innovation, ensuring 
-                every project exceeds expectations while maintaining optimal performance 
-                for seamless player experiences.
+              Our team consists of two partners:
+              </p>
+
+              <div className="partner-list">
+              <li className="intro-text">
+              <strong>Umar Shahzad</strong><br />
+              <span>Discord: <strong>umshzd324</strong></span>
+              </li>
+
+              <li className="intro-text">
+              <strong>Zainab Shahzad</strong><br />
+              <span>Discord: <strong>zainabshzd</strong></span>
+              </li>
+              </div>
+              <p className="intro-text">
+                By working as a team, we ensure faster delivery, higher quality, and a more 
+                refined creative process while maintaining optimal performance for players.
               </p>
 
               {/* Key Highlights */}
@@ -229,7 +244,7 @@ function About() {
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
                   </div>
-                  <span>Fast Turnaround Time</span>
+                  <span>Team-Based Workflow</span>
                 </div>
                 <div className="highlight-item">
                   <div className="highlight-icon">
@@ -276,7 +291,7 @@ function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="services-title">What I Offer</h3>
+            <h3 className="services-title">What We Offer</h3>
             <div className="services-grid">
               {services.map((service, index) => (
                 <motion.div 

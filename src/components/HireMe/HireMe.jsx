@@ -130,7 +130,7 @@ This is an automated project request from your portfolio website.`;
         >
           <div className="header-tag">
             <div className="tag-dot"></div>
-            <span>Hire Me</span>
+            <span>Hire Us</span>
           </div>
           <h2 className="hire-heading">
             Let's Create Something <span className="heading-gradient">Extraordinary</span>
