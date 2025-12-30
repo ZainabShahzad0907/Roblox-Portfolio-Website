@@ -499,12 +499,12 @@
 }
 
 @media (max-width: 480px) {
-  .hire_me {
-    padding: 90px 1rem 70px;
+  .hire-me {
+    padding: 50px 1rem 70px;
   }
 
   .hire-form-container {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .file-upload-label {
@@ -513,7 +513,7 @@
   }
 
   .form-info-grid {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   .info-item {
