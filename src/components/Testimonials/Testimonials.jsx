@@ -171,7 +171,7 @@ const Testimonials = () => {
             What Clients <span className="heading-gradient">Say</span>
           </h2>
           <p className="testimonials-lead">
-            Real feedback from satisfied clients who've experienced my work firsthand
+            Real feedback from satisfied clients who've experienced our work firsthand
           </p>
         </motion.div>
 
