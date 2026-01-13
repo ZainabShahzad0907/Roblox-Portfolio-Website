@@ -1,167 +1,133 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './Footer.css';
 
+// Import social logos
+import discordLogo from '../../assets/Discord.png';
+import linkedinLogo from '../../assets/Linkedin.png';
+import artstationLogo from '../../assets/Artstation.png';
+
 const Footer = () => {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const currentYear = new Date().getFullYear();
 
-  const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Hire Me', href: '#hire' },
-    { name: 'Contact', href: '#contact' }
-  ];
-
-  const socialLinks = [
-    {
-      name: 'ArtStation',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M0 17.723l2.027 3.505h.001a2.424 2.424 0 0 0 2.164 1.333h13.457l-2.792-4.838H0zm24 .025c0-.484-.143-.935-.388-1.314L15.728 2.728a2.424 2.424 0 0 0-2.142-1.289H9.419L21.598 22.54l1.92-3.325c.378-.637.482-.919.482-1.467zm-11.129-3.462L7.428 6.728l-5.444 9.428h11.887z"/>
-        </svg>
-      ),
-      href: 'https://www.artstation.com/artwork/4N9B1l'
-    },
-    {
-      name: 'GitHub',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-        </svg>
-      ),
-      href: 'https://github.com/ZainabShahzad0907'
-    },
-    {
-      name: 'LinkedIn',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
-          <circle cx="4" cy="4" r="2"/>
-        </svg>
-      ),
-      href: 'https://www.linkedin.com/in/umar-shahzad-920898248/'
-    },
-    {
-      name: 'Discord',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-        </svg>
-      ),
-      href: 'https://discordapp.com/users/1135170546917716020'
-    }
+  const socials = [
+    { name: 'Discord', icon: discordLogo, url: 'https://discordapp.com/users/1135170546917716020', color: '#5865F2' },
+    { name: 'LinkedIn', icon: linkedinLogo, url: 'https://www.linkedin.com/in/umar-shahzad-920898248/', color: '#0A66C2' },
+    { name: 'ArtStation', icon: artstationLogo, url: 'https://www.artstation.com/artwork/4N9B1l', color: '#13AFF0' }
   ];
 
   return (
-    <footer className="footer">
-      <div className="footer-bg">
-        <div className="footer-grain"></div>
-      </div>
+    <>
+      <footer className="footer">
+        <div className="footer__fx">
+          <div className="footer__glow" />
+        </div>
 
-      <div className="footer-wrapper">
-        {/* Main Content */}
-        <div className="footer-content">
-          {/* Brand */}
-          <motion.div 
-            className="footer-brand"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="brand-name">UZ <span className="brand-highlight"> Blockworks</span></h3>
-            <p className="brand-tagline">3D Environment Artist & Map Builder</p>
-            <div className="brand-socials">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="social-icon"
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Quick Links */}
-          <motion.div 
-            className="footer-links"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <h4 className="links-title">Quick Links</h4>
-            <nav className="links-nav">
-              {quickLinks.map((link, index) => (
-                <a key={index} href={link.href} className="nav-link">
-                  {link.name}
-                </a>
-              ))}
-            </nav>
-          </motion.div>
-
-          {/* Contact Info */}
-          <motion.div 
-            className="footer-contact"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h4 className="contact-title">Get In Touch</h4>
-            <div className="contact-info">
-              <a href="mailto:umshzd324@gmail.com" className="contact-item">
+        <div className="footer__container">
+          {/* Main Content */}
+          <div className="footer__main">
+            {/* Brand & CTA */}
+            <div className="footer__brand">
+              <div className="footer__logo">
+                <span className="footer__logo-mark">UZ</span>
+                <span className="footer__logo-text">Blockworks</span>
+              </div>
+              <p className="footer__tagline">
+                Premium Roblox environment design partners crafting immersive 3D worlds.
+              </p>
+              <a href="#hire" className="footer__cta">
+                <span>Start Your Project</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
+            {/* Contact Info */}
+            <div className="footer__contact">
+              <h4 className="footer__section-title">Get In Touch</h4>
+              <a href="mailto:umshzd324@gmail.com" className="footer__contact-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="M22 6L12 13 2 6"/>
                 </svg>
                 <span>umshzd324@gmail.com</span>
               </a>
-              <a href="mailto:zainabshahzad0907@gmail.com" className="contact-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
+              <a href="https://github.com/ZainabShahzad0907" target="_blank" rel="noopener noreferrer" className="footer__contact-link">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                 </svg>
-                <span>zainabshahzad0907@gmail.com</span>
-              </a>
-              <a href="#hire" className="contact-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-                </svg>
-                <span>Available for freelance work</span>
+                <span>GitHub</span>
               </a>
             </div>
-          </motion.div>
-        </div>
 
-        {/* Bottom Bar */}
-        <motion.div 
-          className="footer-bottom"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <div className="bottom-divider"></div>
-          <div className="bottom-content">
-            <p className="copyright">
-              © {currentYear} <span className="copyright-name">UZ Blockworks</span>. All rights reserved.
+            {/* Socials */}
+            <div className="footer__socials">
+              <h4 className="footer__section-title">Connect</h4>
+              <div className="footer__socials-grid">
+                {socials.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    className="footer__social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={social.name}
+                    style={{ '--hover-color': social.color }}
+                  >
+                    <img src={social.icon} alt={social.name} />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Row */}
+          <div className="footer__bottom">
+            <p className="footer__copyright">
+              © {currentYear} UZ Blockworks. All rights reserved.
             </p>
-            <p className="crafted">
-              Crafted with <span className="heart">♥</span> and creativity
+            <p className="footer__credit">
+              Crafted with precision & passion.
             </p>
           </div>
-        </motion.div>
-      </div>
-    </footer>
+        </div>
+      </footer>
+
+      {/* Back to Top */}
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            className="footer__top-btn"
+            onClick={scrollToTop}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            aria-label="Back to top"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+          </motion.button>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

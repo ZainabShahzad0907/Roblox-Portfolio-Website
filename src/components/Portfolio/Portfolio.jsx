@@ -88,7 +88,7 @@ const Portfolio = () => {
       description: 'A sweet little ice cream shop with soft lighting and playful design touches.',
       tags: ['Dessert Spot', 'Ice Cream Vibes', '3D Design']
     },
-      {
+    {
       id: 4,
       title: 'Soviet Apartment Blocks',
       category: 'Mid Poly',
@@ -100,8 +100,8 @@ const Portfolio = () => {
       id: 5,
       title: 'Institutional & Landmark Pack',
       category: 'Mixed Poly',
-      images: [project19a, project14a, project17a, project13a, project18a,  project16a, project22a],
-      description: 'A collection of high-impact 3D buildings - from hospitals and hotels to training centers and temples - designed to anchor city scenes and add realism to public environments.',
+      images: [project19a, project14a, project17a, project13a, project18a, project16a, project22a],
+      description: 'A collection of high-impact 3D buildings - from hospitals and hotels to training centers and temples.',
       tags: ['Landmark Assets', 'Civic Architecture']
     },
     {
@@ -109,7 +109,7 @@ const Portfolio = () => {
       title: 'Urban Simulation Pack',
       category: 'Mixed Poly',
       images: [project12a, project9a, project11a, project10a, project8a, project21a, project20a],
-      description: 'A full-scale 3D city environment featuring shops, offices, eateries, public buildings, and residential blocks - designed for simulation, storytelling, or game-ready use.',
+      description: 'A full-scale 3D city environment featuring shops, offices, eateries, public buildings, and residential blocks.',
       tags: ['City Assets', 'Architectural Pack']
     },
     {
@@ -125,7 +125,7 @@ const Portfolio = () => {
       title: 'Modern Civic Structure',
       category: 'Mid Poly',
       images: [project15a, project15b],
-      description: 'Sleek public building with tiled facades, warm lighting, and symmetrical layouts - designed for realism and versatility.',
+      description: 'Sleek public building with tiled facades, warm lighting, and symmetrical layouts.',
       tags: ['Civic Assets', 'Public Architecture']
     },
     {
@@ -133,7 +133,7 @@ const Portfolio = () => {
       title: 'Crossroads Adventure Map',
       category: 'Low Poly',
       images: [project23a, project23b, project23c, project23d, project23e],
-      description: 'A vibrant sandbox-style map with fantasy zones, slides, towers, and themed districts — built for exploration and fun.',
+      description: 'A vibrant sandbox-style map with fantasy zones, slides, towers, and themed districts.',
       tags: ['Low Poly World', 'Interactive Playground']
     },
     {
@@ -141,15 +141,15 @@ const Portfolio = () => {
       title: 'Physical Sciences South',
       category: 'Mid Poly',
       images: [project25a, project25b, project25c, project25d],
-      description: 'A modern science facility with clean lines, arched details, and a structured layout - designed for campus realism.',
-      tags: ['Campus Asset', 'Mid Poly Render','Educational Space']
+      description: 'A modern science facility with clean lines, arched details, and a structured layout.',
+      tags: ['Campus Asset', 'Mid Poly Render', 'Educational Space']
     },
     {
       id: 12,
       title: 'GTA-Inspired Cityscape',
       category: 'Mixed Poly',
-      images: [project26c, project26b, project26a, project26d, project26e, project26f, project26g, project26h, project26i, project28a ],
-      description: 'A stylized urban map with glowing windows, graffiti walls, fast-food joints, and palm-lined streets - built for sandbox chaos and story-driven gameplay.',
+      images: [project26c, project26b, project26a, project26d, project26e, project26f, project26g, project26h, project26i, project28a],
+      description: 'A stylized urban map with glowing windows, graffiti walls, fast-food joints, and palm-lined streets.',
       tags: ['Open World Assets', 'Urban Grit', 'Mixed Poly City']
     },
     {
@@ -157,122 +157,104 @@ const Portfolio = () => {
       title: 'Low-Poly World Pack',
       category: 'Low Poly',
       images: [project27a, project27b],
-      description: 'A bright and playful set of low-poly scenes - from grassy terrain and blocky trees to circular city parks with roaming creatures. Built for lightweight performance and creative worldbuilding.',
+      description: 'A bright and playful set of low-poly scenes - from grassy terrain to circular city parks.',
       tags: ['Stylized Terrain', 'Low Poly Assets']
     },
   ];
 
-  const displayedProjects = showAll ? projects : projects.slice(0, 4);
+  const displayedProjects = showAll ? projects : projects.slice(0, 6);
 
   return (
     <section className="portfolio" id="projects">
-      {/* Background */}
-      <div className="portfolio-bg">
-        <div className="portfolio-orb-1"></div>
-        <div className="portfolio-orb-2"></div>
-        <div className="portfolio-grain"></div>
+      {/* Background Effects */}
+      <div className="portfolio__fx">
+        <div className="portfolio__gradient" />
       </div>
 
-      <div className="portfolio-wrapper">
+      <div className="portfolio__container">
         {/* Header */}
-        <motion.div 
-          className="portfolio-header"
+        <motion.header 
+          className="portfolio__header"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="header-tag">
-            <div className="tag-dot"></div>
-            <span>Portfolio</span>
-          </div>
-          <h2 className="portfolio-heading">
-            Featured <span className="heading-gradient">Projects</span>
+          <span className="portfolio__label">Portfolio</span>
+          <h2 className="portfolio__title">
+            Featured <span className="portfolio__title--accent">Projects</span>
           </h2>
-          <p className="portfolio-lead">
+          <p className="portfolio__subtitle">
             Explore our latest work showcasing immersive environments and creative excellence
           </p>
-        </motion.div>
+        </motion.header>
 
-        {/* Projects Grid */}
-        <div className="projects-grid">
+        {/* Projects List */}
+        <div className="portfolio__list">
           <AnimatePresence>
             {displayedProjects.map((project, index) => (
-              <motion.div
+              <motion.article
                 key={project.id}
-                className="project-card"
+                className="portfolio__item"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 30 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
                 onClick={() => setSelectedProject(project)}
               >
-                <div className="project-image-wrapper">
+                <div className="portfolio__item-media">
                   <img 
                     src={project.images[0]} 
                     alt={project.title}
-                    className="project-image"
+                    className="portfolio__item-img"
                   />
-                  <div className="project-overlay">
-                    <div className="overlay-content">
-                      <div className="view-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                          <circle cx="12" cy="12" r="3"/>
-                        </svg>
-                      </div>
-                      <span className="view-text">View Project</span>
-                    </div>
+                  <div className="portfolio__item-overlay">
+                    <span className="portfolio__item-view">View Project</span>
                   </div>
-                  <div className="project-category">{project.category}</div>
-                  <div className="image-count">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                      <circle cx="8.5" cy="8.5" r="1.5"/>
-                      <polyline points="21 15 16 10 5 21"/>
-                    </svg>
-                    <span>{project.images.length}</span>
-                  </div>
+                  <span className="portfolio__item-count">
+                    {project.images.length} images
+                  </span>
                 </div>
 
-                <div className="project-info">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-desc">{project.description}</p>
-                  <div className="project-tags">
+                <div className="portfolio__item-info">
+                  <div className="portfolio__item-meta">
+                    <span className="portfolio__item-num">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="portfolio__item-cat">{project.category}</span>
+                  </div>
+                  <h3 className="portfolio__item-title">{project.title}</h3>
+                  <p className="portfolio__item-desc">{project.description}</p>
+                  <div className="portfolio__item-tags">
                     {project.tags.map((tag, i) => (
-                      <span key={i} className="tag">{tag}</span>
+                      <span key={i} className="portfolio__tag">{tag}</span>
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </AnimatePresence>
         </div>
 
-        {/* Show More/Less Button */}
-        {projects.length > 4 && (
+        {/* Toggle Button */}
+        {projects.length > 6 && (
           <motion.div 
-            className="portfolio-actions"
+            className="portfolio__toggle"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
           >
             <button 
-              className="show-more-btn"
+              className="portfolio__btn"
               onClick={() => setShowAll(!showAll)}
             >
-              <span>{showAll ? 'Show Less' : 'Show More Projects'}</span>
+              <span>{showAll ? 'Show Less' : 'View All Projects'}</span>
               <motion.svg 
-                width="20" 
-                height="20" 
                 viewBox="0 0 24 24" 
                 fill="none" 
                 stroke="currentColor" 
-                strokeWidth="2.5"
+                strokeWidth="2"
                 animate={{ rotate: showAll ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
               >
                 <path d="M6 9l6 6 6-6"/>
               </motion.svg>
@@ -281,25 +263,25 @@ const Portfolio = () => {
         )}
       </div>
 
-      {/* Project Modal */}
+      {/* Modal */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div 
-            className="project-modal"
+            className="portfolio__modal"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedProject(null)}
           >
             <motion.div 
-              className="modal-content"
-              initial={{ scale: 0.9, opacity: 0 }}
+              className="portfolio__modal-content"
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
               <button 
-                className="modal-close"
+                className="portfolio__modal-close"
                 onClick={() => setSelectedProject(null)}
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -308,23 +290,23 @@ const Portfolio = () => {
                 </svg>
               </button>
 
-              <div className="modal-header">
-                <h3 className="modal-title">{selectedProject.title}</h3>
-                <span className="modal-category">{selectedProject.category}</span>
+              <div className="portfolio__modal-header">
+                <span className="portfolio__modal-cat">{selectedProject.category}</span>
+                <h3 className="portfolio__modal-title">{selectedProject.title}</h3>
               </div>
 
-              <div className="modal-images">
+              <div className="portfolio__modal-gallery">
                 {selectedProject.images.map((img, i) => (
                   <div 
                     key={i} 
-                    className="modal-image-wrapper"
+                    className="portfolio__modal-img"
                     onClick={(e) => {
                       e.stopPropagation();
                       setFullscreenImage(img);
                     }}
                   >
                     <img src={img} alt={`${selectedProject.title} ${i + 1}`} />
-                    <div className="fullscreen-icon">
+                    <div className="portfolio__modal-expand">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
                       </svg>
@@ -333,11 +315,11 @@ const Portfolio = () => {
                 ))}
               </div>
 
-              <div className="modal-details">
-                <p className="modal-description">{selectedProject.description}</p>
-                <div className="modal-tags">
+              <div className="portfolio__modal-details">
+                <p className="portfolio__modal-desc">{selectedProject.description}</p>
+                <div className="portfolio__modal-tags">
                   {selectedProject.tags.map((tag, i) => (
-                    <span key={i} className="modal-tag">{tag}</span>
+                    <span key={i} className="portfolio__tag">{tag}</span>
                   ))}
                 </div>
               </div>
@@ -346,18 +328,18 @@ const Portfolio = () => {
         )}
       </AnimatePresence>
 
-      {/* Fullscreen Image Viewer */}
+      {/* Fullscreen */}
       <AnimatePresence>
         {fullscreenImage && (
           <motion.div 
-            className="fullscreen-viewer"
+            className="portfolio__fullscreen"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setFullscreenImage(null)}
           >
             <button 
-              className="fullscreen-close"
+              className="portfolio__fullscreen-close"
               onClick={() => setFullscreenImage(null)}
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -368,11 +350,9 @@ const Portfolio = () => {
             <motion.img 
               src={fullscreenImage} 
               alt="Fullscreen view"
-              initial={{ scale: 0.8 }}
+              initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
-              exit={{ scale: 0.8 }}
-              className="fullscreen-image"
-              onClick={(e) => e.stopPropagation()}
+              exit={{ scale: 0.9 }}
             />
           </motion.div>
         )}

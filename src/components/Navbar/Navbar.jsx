@@ -4,184 +4,143 @@ import './Navbar.css';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'About Us', href: '#about' },
+    { name: 'Our Projects', href: '#projects' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'Collaborations', href: '#collaborations' },
-    { name: 'Hire Us', href: '#hire' },
-    { name: 'Contact Us', href: '#contact' }
+    { name: 'Hire Us', href: '#hire' }
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Determine active section based on scroll position
-      const sections = ['home', 'about', 'projects', 'testimonials', 'collaborations', 'hire', 'contact'];
+      const sections = ['home', 'about', 'projects', 'testimonials', 'collaborations', 'hire'];
       const scrollPosition = window.scrollY + 200;
-
+      
+      let currentSection = 'home';
+      
+      // Iterate backwards to find which section we're in
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.getElementById(sections[i]);
         if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
+          currentSection = sections[i];
           break;
         }
       }
+      
+      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Call once on mount
+    handleScroll();
     
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    // Close mobile menu first
-    setIsMobileMenuOpen(false);
-    
-    // Small delay to allow menu to close
-    setTimeout(() => {
-      const targetId = href.substring(1);
-      const element = document.getElementById(targetId);
-      
-      if (element) {
-        const navbarHeight = 80;
-        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - navbarHeight;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-
-        // Update active section immediately
-        setActiveSection(targetId);
-      }
-    }, 100);
+  const handleNavClick = (href) => {
+    const targetId = href.startsWith('#') ? href.slice(1) : href;
+    setActiveSection(targetId);
+    // Let the anchor's default navigation run first (important on mobile),
+    // then close the menu.
+    window.setTimeout(() => setIsMobileOpen(false), 0);
   };
 
   return (
     <motion.nav 
-      className={`navbar ${isScrolled ? 'scrolled' : ''}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
+      className={`nav ${isScrolled ? 'is-scrolled' : ''}`}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
     >
-      <div className="nav-container">
+      <div className="nav__container">
         {/* Logo */}
-        <motion.a 
+        <a 
           href="#home" 
-          className="nav-logo"
-          onClick={(e) => handleNavClick(e, '#home')}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+          className="nav__logo"
+          onClick={() => handleNavClick('#home')}
         >
-          <span className="logo-text">UZ</span>
-          <span className="logo-highlight">Blockworks</span>
-        </motion.a>
+          <span className="nav__logo-mark">UZ</span>
+          <span className="nav__logo-text">Blockworks</span>
+        </a>
 
         {/* Desktop Menu */}
-        <ul className="nav-menu">
+        <ul className="nav__menu">
           {navItems.map((item, index) => (
-            <motion.li 
-              key={index}
-              whileHover={{ y: -2 }}
-              transition={{ duration: 0.2 }}
-            >
+            <li key={index}>
               <a 
                 href={item.href}
-                className={`nav-link ${activeSection === item.href.substring(1) ? 'active' : ''}`}
-                onClick={(e) => handleNavClick(e, item.href)}
+                className={`nav__link ${activeSection === item.href.substring(1) ? 'is-active' : ''}`}
+                onClick={() => handleNavClick(item.href)}
               >
                 {item.name}
-                {activeSection === item.href.substring(1) && (
-                  <motion.span
-                    className="active-indicator"
-                    layoutId="activeIndicator"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
               </a>
-            </motion.li>
+            </li>
           ))}
         </ul>
 
-        {/* CTA Button */}
-        <motion.a
+        {/* CTA */}
+        <a
           href="#hire"
-          className="nav-cta"
-          onClick={(e) => handleNavClick(e, '#hire')}
-          whileHover={{ scale: 1.05, boxShadow: '0 10px 40px rgba(59, 130, 246, 0.4)' }}
-          whileTap={{ scale: 0.95 }}
+          className="nav__cta"
+          onClick={() => handleNavClick('#hire')}
         >
-          <span>Let's Talk</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <line x1="5" y1="12" x2="19" y2="12"/>
-            <polyline points="12 5 19 12 12 19"/>
+          <span>Start Project</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
-        </motion.a>
+        </a>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Toggle */}
         <button
-          className={`mobile-menu-btn ${isMobileMenuOpen ? 'open' : ''}`}
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsMobileMenuOpen(!isMobileMenuOpen);
-          }}
+          className={`nav__toggle ${isMobileOpen ? 'is-open' : ''}`}
+          onClick={() => setIsMobileOpen(!isMobileOpen)}
           aria-label="Toggle menu"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span />
+          <span />
+          <span />
         </button>
       </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {isMobileOpen && (
           <motion.div
-            className="mobile-menu"
+            className="nav__mobile"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
           >
-            <ul className="mobile-nav-list">
+            <ul className="nav__mobile-list">
               {navItems.map((item, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                >
-                  <a
+                <li key={index}>
+                  <a 
                     href={item.href}
-                    className={`mobile-nav-link ${activeSection === item.href.substring(1) ? 'active' : ''}`}
-                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`nav__mobile-link ${activeSection === item.href.substring(1) ? 'is-active' : ''}`}
+                    onClick={() => handleNavClick(item.href)}
                   >
                     {item.name}
                   </a>
-                </motion.li>
+                </li>
               ))}
             </ul>
-            <motion.a
+            <a
               href="#hire"
-              className="mobile-cta"
-              onClick={(e) => handleNavClick(e, '#hire')}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+              className="nav__mobile-cta"
+              onClick={() => handleNavClick('#hire')}
             >
-              Let's Talk
-            </motion.a>
+              <span>Start Project</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

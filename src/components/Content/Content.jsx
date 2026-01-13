@@ -1,208 +1,151 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './Content.css';
 
-// Import logos
-import discordLogo from '../../assets/Discord.png';
-import linkedinLogo from '../../assets/Linkedin.png';
-import artstationLogo from '../../assets/Artstation.png';
-import robloxLogo from '../../assets/roblox.png';
-import unityLogo from '../../assets/unity.png';
-import blenderLogo from '../../assets/blender.png';
-
 const Content = () => {
-  const scrollToSection = (sectionId) => {
-    const element = document.querySelector(sectionId);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      window.scrollTo({
-        top: elementPosition - offset,
-        behavior: 'smooth'
-      });
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!heroRef.current) return;
+      const { clientX, clientY } = e;
+      const { width, height } = heroRef.current.getBoundingClientRect();
+      const x = (clientX / width - 0.5) * 20;
+      const y = (clientY / height - 0.5) * 20;
+      heroRef.current.style.setProperty('--mouse-x', `${x}px`);
+      heroRef.current.style.setProperty('--mouse-y', `${y}px`);
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  const scrollTo = (id) => {
+    const el = document.querySelector(id);
+    if (el) {
+      window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="hero" id="home">
-      {/* Dynamic Background */}
-      <div className="hero-bg">
-        <div className="gradient-orb orb-1"></div>
-        <div className="gradient-orb orb-2"></div>
-        <div className="grain"></div>
+    <section className="hero" id="home" ref={heroRef}>
+      {/* Noise texture */}
+      <div className="hero__noise" />
+      
+      {/* Scan line effect */}
+      <div className="hero__scanline" />
+
+      {/* Gradient mesh */}
+      <div className="hero__mesh">
+        <div className="hero__mesh-blob hero__mesh-blob--1" />
+        <div className="hero__mesh-blob hero__mesh-blob--2" />
       </div>
 
-      <div className="hero-grid">
-        <div className="grid-overlay"></div>
-      </div>
-
-      <div className="hero-wrapper">
-        {/* Left Content */}
+      {/* Main content */}
+      <div className="hero__wrapper">
+        {/* Top bar
         <motion.div 
-          className="hero-main"
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          className="hero__topbar"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
         >
-          <motion.div 
-            className="badge"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
+          <span className="hero__status">
+            <span className="hero__status-dot" />
+            Available for projects
+          </span>
+          <span className="hero__location">Based in Pakistan</span>
+        </motion.div> */}
+
+        {/* Hero text */}
+        <div className="hero__main">
+          <motion.div
+            className="hero__overline"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <span className="badge-dot"></span>
-            <span>Available for Projects</span>
+            Roblox Environment Artist
           </motion.div>
 
-          <h1 className="hero-heading">
-            <span className="heading-line">Premium Roblox</span>
-            <span className="heading-line gradient">Environment Design</span>
-          </h1>
+          <motion.h1 
+            className="hero__headline"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <span className="hero__headline-row">
+              <span className="hero__word">Building</span>
+            </span>
+            <span className="hero__headline-row">
+              <span className="hero__word hero__word--outline">Digital</span>
+              <span className="hero__word">Worlds</span>
+            </span>
+          </motion.h1>
 
-          <p className="hero-tagline">
-            Crafting immersive 3D worlds that captivate millions of players
-          </p>
+          <motion.p 
+            className="hero__desc"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            Crafting immersive environments that captivate millions
+          </motion.p>
 
-          <div className="hero-actions">
-            <button className="btn-primary" onClick={() => scrollToSection('#projects')}>
-              View Portfolio
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
+          <motion.div 
+            className="hero__buttons"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <button className="hero__btn hero__btn--fill" onClick={() => scrollTo('#projects')}>
+              View Projects
             </button>
-            <button className="btn-outline" onClick={() => scrollToSection('#contact')}>
-              Contact Me
+            <button className="hero__btn hero__btn--line" onClick={() => scrollTo('#hire')}>
+              Let's Talk
             </button>
-          </div>
+          </motion.div>
+        </div>
 
-          {/* Tech & Social - Compact Inline */}
-          <div className="hero-meta">
-            <div className="meta-group">
-              <span className="meta-label">Stack</span>
-              <div className="icon-list">
-                <div className="icon-item" title="Roblox Studio">
-                  <img src={robloxLogo} alt="Roblox" />
-                </div>
-                <a href="https://www.blender.org/" target="_blank" rel="noopener noreferrer" className="icon-item" title="Blender">
-                  <img src={blenderLogo} alt="Blender" />
-                </a>
-                <a href="https://unity.com/" target="_blank" rel="noopener noreferrer" className="icon-item" title="Unity">
-                  <img src={unityLogo} alt="Unity" />
-                </a>
-              </div>
-            </div>
-
-            <div className="divider"></div>
-
-            <div className="meta-group">
-              <span className="meta-label">Connect</span>
-              <div className="icon-list">
-                <a 
-                  href="https://discordapp.com/users/1135170546917716020" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="icon-item" 
-                  title="Discord"
-                >
-                  <img src={discordLogo} alt="Discord" />
-                </a>
-
-                <a 
-                  href="https://www.linkedin.com/in/umar-shahzad-920898248/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="icon-item" 
-                  title="LinkedIn"
-                >
-                  <img src={linkedinLogo} alt="LinkedIn" />
-                </a>
-
-                <a 
-                  href="https://www.artstation.com/artwork/4N9B1l" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="icon-item" 
-                  title="ArtStation"
-                >
-                  <img src={artstationLogo} alt="ArtStation" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Right Stats - Compact Cards */}
+        {/* Stats strip */}
         <motion.div 
-          className="hero-stats"
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          className="hero__stats"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
         >
-          <motion.div 
-            className="stat-box"
-            whileHover={{ y: -5 }}
-          >
-            <div className="stat-value">50+</div>
-            <div className="stat-text">Projects</div>
-            <div className="stat-indicator">
-              <motion.div 
-                className="indicator-fill"
-                initial={{ width: 0 }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 1.5, delay: 0.5 }}
-              />
-            </div>
-          </motion.div>
-
-          <motion.div 
-            className="stat-box"
-            whileHover={{ y: -5 }}
-          >
-            <div className="stat-value">30+</div>
-            <div className="stat-text">Clients</div>
-            <div className="stat-indicator">
-              <motion.div 
-                className="indicator-fill"
-                initial={{ width: 0 }}
-                animate={{ width: "85%" }}
-                transition={{ duration: 1.5, delay: 0.7 }}
-              />
-            </div>
-          </motion.div>
-
-          <motion.div 
-            className="stat-box"
-            whileHover={{ y: -5 }}
-          >
-            <div className="stat-value">100K+</div>
-            <div className="stat-text">Players</div>
-            <div className="stat-indicator">
-              <motion.div 
-                className="indicator-fill"
-                initial={{ width: 0 }}
-                animate={{ width: "95%" }}
-                transition={{ duration: 1.5, delay: 0.9 }}
-              />
-            </div>
-          </motion.div>
+          <div className="hero__stat">
+            <span className="hero__stat-value">50+</span>
+            <span className="hero__stat-label">Projects</span>
+          </div>
+          <div className="hero__stat-divider" />
+          <div className="hero__stat">
+            <span className="hero__stat-value">30+</span>
+            <span className="hero__stat-label">Clients</span>
+          </div>
+          <div className="hero__stat-divider" />
+          <div className="hero__stat">
+            <span className="hero__stat-value">100K+</span>
+            <span className="hero__stat-label">Players</span>
+          </div>
+          <div className="hero__stat-divider" />
+          <div className="hero__stat">
+            <span className="hero__stat-value">3+</span>
+            <span className="hero__stat-label">Years</span>
+          </div>
         </motion.div>
       </div>
 
-      {/* Minimal Scroll Hint */}
+      {/* Scroll hint */}
       <motion.div 
-        className="scroll-hint"
+        className="hero__scroll"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
+        transition={{ delay: 1 }}
+        onClick={() => scrollTo('#about')}
       >
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 5v14M5 12l7 7 7-7"/>
-          </svg>
-        </motion.div>
+        <div className="hero__scroll-track">
+          <div className="hero__scroll-thumb" />
+        </div>
       </motion.div>
     </section>
   );
