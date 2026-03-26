@@ -67,6 +67,9 @@ import project29g from '../../assets/project29g.png';
 import project29h from '../../assets/project29h.png';
 import project29i from '../../assets/project29i.png';
 import project29j from '../../assets/project29j.png';
+import project29k from '../../assets/project29k.png';
+import project29l from '../../assets/project29l.png';
+import project29m from '../../assets/project29m.png';
 
 const Portfolio = () => {
   const [showAll, setShowAll] = useState(false);
@@ -102,7 +105,7 @@ const Portfolio = () => {
       id: 4,
       title: 'Military Academy Map',
       category: 'Mid Poly',
-      images: [project29a, project29b, project29c, project29d, project29e, project29f, project29g, project29h, project29i, project29j],
+      images: [project29l,project29a, project29b, project29c, project29d, project29e, project29f, project29g, project29h, project29i, project29j, project29k, project29m],
       description: 'A structured mid-poly Military Academy map designed for immersive training environments with a focus on realism and efficient layout.',
       tags: ['Military Environment', 'Training Facility', 'Mid Poly Map ']
     },
