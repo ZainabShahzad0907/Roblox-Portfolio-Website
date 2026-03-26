@@ -57,6 +57,16 @@ import project26i from '../../assets/project26i.png';
 import project27a from '../../assets/project27a.png';
 import project27b from '../../assets/project27b.png';
 import project28a from '../../assets/project28a.png';
+import project29a from '../../assets/project29a.png';
+import project29b from '../../assets/project29b.png';
+import project29c from '../../assets/project29c.png';
+import project29d from '../../assets/project29d.png';
+import project29e from '../../assets/project29e.png';
+import project29f from '../../assets/project29f.png';
+import project29g from '../../assets/project29g.png';
+import project29h from '../../assets/project29h.png';
+import project29i from '../../assets/project29i.png';
+import project29j from '../../assets/project29j.png';
 
 const Portfolio = () => {
   const [showAll, setShowAll] = useState(false);
@@ -90,6 +100,14 @@ const Portfolio = () => {
     },
     {
       id: 4,
+      title: 'Military Academy Map',
+      category: 'Mid Poly',
+      images: [project29a, project29b, project29c, project29d, project29e, project29f, project29g, project29h, project29i, project29j],
+      description: 'A structured mid-poly Military Academy map designed for immersive training environments with a focus on realism and efficient layout.',
+      tags: ['Military Environment', 'Training Facility', 'Mid Poly Map ']
+    },
+    {
+      id: 5,
       title: 'Soviet Apartment Blocks',
       category: 'Mid Poly',
       images: [project5a, project5b, project6a, project7a],
@@ -97,7 +115,7 @@ const Portfolio = () => {
       tags: ['Brutalist Design', 'Eastern Bloc Style', 'Urban Architecture']
     },
     {
-      id: 5,
+      id: 6,
       title: 'Institutional & Landmark Pack',
       category: 'Mixed Poly',
       images: [project19a, project14a, project17a, project13a, project18a, project16a, project22a],
@@ -105,7 +123,7 @@ const Portfolio = () => {
       tags: ['Landmark Assets', 'Civic Architecture']
     },
     {
-      id: 6,
+      id: 7,
       title: 'Urban Simulation Pack',
       category: 'Mixed Poly',
       images: [project12a, project9a, project11a, project10a, project8a, project21a, project20a],
@@ -113,7 +131,7 @@ const Portfolio = () => {
       tags: ['City Assets', 'Architectural Pack']
     },
     {
-      id: 7,
+      id: 8,
       title: 'Bloomfield Police Academy',
       category: 'Mid/Low Poly',
       images: [project4a, project4b, project4c, project4d, project4e],
@@ -121,7 +139,7 @@ const Portfolio = () => {
       tags: ['Institutional Architecture', 'Exterior + Interior']
     },
     {
-      id: 8,
+      id: 9,
       title: 'Modern Civic Structure',
       category: 'Mid Poly',
       images: [project15a, project15b],
@@ -129,7 +147,7 @@ const Portfolio = () => {
       tags: ['Civic Assets', 'Public Architecture']
     },
     {
-      id: 9,
+      id: 10,
       title: 'Crossroads Adventure Map',
       category: 'Low Poly',
       images: [project23a, project23b, project23c, project23d, project23e],
@@ -137,7 +155,7 @@ const Portfolio = () => {
       tags: ['Low Poly World', 'Interactive Playground']
     },
     {
-      id: 10,
+      id: 11,
       title: 'Physical Sciences South',
       category: 'Mid Poly',
       images: [project25a, project25b, project25c, project25d],
