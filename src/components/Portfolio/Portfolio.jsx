@@ -105,7 +105,7 @@ const Portfolio = () => {
       id: 4,
       title: 'Military Academy Map',
       category: 'Mid Poly',
-      images: [project29l,project29a, project29b, project29c, project29d, project29e, project29f, project29g, project29h, project29i, project29j, project29k, project29m],
+      images: [project29l, project29d, project29m,project29g, project29b, project29c, project29e, project29f, project29a, project29h, project29i, project29j, project29k],
       description: 'A structured mid-poly Military Academy map designed for immersive training environments with a focus on realism and efficient layout.',
       tags: ['Military Environment', 'Training Facility', 'Mid Poly Map ']
     },
