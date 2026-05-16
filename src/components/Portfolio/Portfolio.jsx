@@ -184,6 +184,7 @@ const Portfolio = () => {
   ];
 
   const displayedProjects = showAll ? projects : projects.slice(0, 6);
+  const isMilitaryProject = selectedProject?.id === 4;
 
   return (
     <section className="portfolio" id="projects">
@@ -295,7 +296,7 @@ const Portfolio = () => {
             onClick={() => setSelectedProject(null)}
           >
             <motion.div 
-              className="portfolio__modal-content"
+              className={`portfolio__modal-content ${isMilitaryProject ? 'portfolio__modal-content--military' : ''}`}
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
@@ -316,11 +317,11 @@ const Portfolio = () => {
                 <h3 className="portfolio__modal-title">{selectedProject.title}</h3>
               </div>
 
-              <div className="portfolio__modal-gallery">
+              <div className={`portfolio__modal-gallery ${isMilitaryProject ? 'portfolio__modal-gallery--military' : ''}`}>
                 {selectedProject.images.map((img, i) => (
                   <div 
                     key={i} 
-                    className="portfolio__modal-img"
+                    className={`portfolio__modal-img ${isMilitaryProject ? 'portfolio__modal-img--military' : ''}`}
                     onClick={(e) => {
                       e.stopPropagation();
                       setFullscreenImage(img);
